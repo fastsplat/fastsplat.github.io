@@ -165,15 +165,71 @@
             <hr class="rounded">
             <div class="rows">
                 <h2 class="title is-3">Overview of FAST-Splat</h2>
-                <div class="column2">
-                    <img src="media/figures/method.png" alt="method-imag" style="width:100%">
-                </div>
-                <div class="column2">
-                    <img src="media/figures/overview.png" alt="method-image" style="width:100%">
+                <div class="column1">
+                    <img src="media/figures/teaser.png" alt="arch-imag" style="width:100%">
                 </div>
                 <p class="content has-text-justified">
-                    Placeholder
+                    FAST-Splat enables fast, ambiguity-free semantic Gaussian Splatting, achieving 4x to 6x faster training times, 18x to
+                    75x faster rendering speeds, and 3x lower GPU memory usage compared to prior work. FAST-Splat resolves
+                    language/scene-attributed ambiguity in object localization, providing the precise semantic label of objects when given a
+                    user query, e.g., in the illustrated cases with a related but different object, FAST-Splat informs a user that it found
+                    a coffee machine given the query: “tea,” and an apple given the query: “fruit.”
                 </p>
+
+                <div class="column1">
+                    <img src="media/figures/architecture.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Unlike prior semantic Gaussian Splatting methods, FAST-Splat trains a non-neural-based semantic Gaussian Splatting model
+                    to achieve much faster training and rendering times by extending closed-set semantic segmentation to the open-vocabulary
+                    setting. FAST-Splat distills language semantics from a closed-set object detector, e.g., YOLO, augmented with an
+                    open-set object detector, e.g., GroundingDINO, and a image segmentation model, e.g., SAM-2.
+                </p>
+            </div>
+
+            <hr class="rounded">
+            <div class="rows">
+                <h2 class="title is-3">Results of FAST-Splat</h2>
+
+                <h4 class="title is-4">Scene Rendering</h4>
+                <div class="column1">
+                    <img src="media/figures/rgb_stats_trim.png" alt="arch-imag" style="width:100%">
+                </div>
+
+                <p class="content has-text-justified">
+                    RGB images rendered using each semantic Gaussian Splatting method. FAST-Splat achieves 18x to 75x faster rendering
+                    speeds with at least 3x lower memory usage, while achieving competitive (and in some cases, better) reconstruction
+                    quality.
+                </p>
+                
+                <h4 class="title is-4">Semantic Gaussian Splatting</h4>
+                <div class="column1">
+                    <img src="media/figures/seg_stats.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Semantic segmentation using each semantic Gaussian Splatting method. FAST-Splat achieves competitive performance
+                    compared to existing semantic Gaussian Splatting method, achieving the highest mIoU and accuracy scores in some scenes
+                    while being the next best-performing method in the remaining scenes.
+                </p>
+                <h4 class="title is-4">Semantic Disambiguation</h4>
+                <div class="column1">
+                    <img src="media/figures/semantic_disambiguation.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    FAST-Splat resolves language ambiguity in user-provided natural-language queries in semantic object localization.
+                    FAST-Splat identifies the specific semantic class of each relevant object, e.g., a coffee machine and a kettle, when
+                    prompted with an ambiguous query, e.g., “coffee” and “cooking pot,” respectively. Likewise, FAST-Splat disambiguates
+                    between a “cup” and a vase and between a “fruit” and a pottedplant in the garden-like scene.
+                </p>
+
+                <h4 class="title is-4">Scene Editing</h4>
+                <div class="column1">
+                    <img src="media/figures/scene_editing_views_horizontal.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Like existing semantic Gaussian Splatting methods, FAST-Splat enables editing of Gaussian Splatting scenes. Here, we show color-editing of a coffee machine in a kitchen.
+                </p>
+                
             </div>
 
             <hr class="rounded">
